@@ -123,9 +123,9 @@ footer .mark{letter-spacing:.4em;direction:ltr;color:var(--cream);font-size:12px
 
 /* Hero spark: slow shimmer */
 @keyframes twinkle{0%,100%{transform:scale(1) rotate(0);opacity:1}50%{transform:scale(1.06) rotate(4deg);opacity:.85}}
-@keyframes halo{0%,100%{opacity:.7}50%{opacity:1}}
+@keyframes halo{0%,100%{opacity:.07}50%{opacity:.12}}
 .glow .star{transform-origin:200px 250px;animation:twinkle 5s ease-in-out infinite}
-.glow ellipse{animation:halo 5s ease-in-out infinite}
+.glow .big{animation:halo 5s ease-in-out infinite}
 
 /* Reveal on scroll (only when JS runs) */
 .js .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
@@ -170,6 +170,29 @@ footer .mark{letter-spacing:.4em;direction:ltr;color:var(--cream);font-size:12px
   .swipe-hint{display:block!important}
 }
 .swipe-hint{display:none;color:var(--muted);font-size:13px;margin-top:-4px}
+
+/* Identity-matched sections */
+.band{background:#F4F0FA;border-top:none!important}
+.svc{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+@media (max-width:1020px){.svc{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.svc{grid-template-columns:1fr}}
+.svc article{background:#fff;border-radius:16px;padding:28px 24px;display:grid;gap:8px;align-content:start;min-height:220px;min-width:0}
+.svc svg{width:30px;height:37px;fill:var(--lav);margin-bottom:28px}
+.svc h3{font-size:21px;font-weight:700}
+.svc p{color:var(--muted);font-size:15px}
+.work-sub{color:var(--lav)!important}
+.works{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+@media (max-width:860px){.works{grid-template-columns:1fr}}
+.work .ph{aspect-ratio:1/1;border:2px solid var(--lav);border-radius:16px;background:#F4F0FA;display:grid;place-items:center;color:var(--lav);font-size:15px}
+.work h3{font-size:18px;font-weight:500;margin-top:16px}
+.work p{color:var(--muted);font-size:14px}
+.cta{justify-items:center;text-align:center}
+.cta .btn-tint{background:#F4F0FA;color:#111;border-color:#F4F0FA;font-weight:700;padding:14px 34px}
+.cta .btn-tint:hover{background:#111;color:#fff;border-color:#111}
+footer .wrap{flex-direction:column;justify-content:center;text-align:center}
+.btn-soft{background:#F4F0FA;color:var(--cream)}
+.btn-soft:hover{background:var(--gold);color:#111}
+.glow .big{opacity:.09}
 </style>
 </head>
 <body>
@@ -180,10 +203,10 @@ footer .mark{letter-spacing:.4em;direction:ltr;color:var(--cream);font-size:12px
     <a class="brand" href="#top" aria-label="تألّق ستوديو"><img src="logo.png" alt="تألّق" width="195" height="192" style="height:48px;width:auto;display:block"></a>
     <nav aria-label="القائمة">
       <ul>
-        <li><a href="#why">ليش تألّق</a></li>
-        <li><a href="#services">الباقات</a></li>
+        <li><a href="#top">الرئيسية</a></li>
+        <li><a href="#services">خدماتنا</a></li>
+        <li><a href="#work">أعمالنا</a></li>
         <li><a href="#process">طريقة العمل</a></li>
-        <li><a href="#contact">تواصل معنا</a></li>
       </ul>
     </nav>
     <a class="btn btn-gold" href="https://wa.me/966507689004" target="_blank" rel="noopener">ابدأ مشروعك</a>
@@ -195,23 +218,32 @@ footer .mark{letter-spacing:.4em;direction:ltr;color:var(--cream);font-size:12px
   <section class="hero">
     <div class="glow" aria-hidden="true">
       <svg viewBox="0 0 400 500">
-        <defs>
-          <radialGradient id="g" cx="50%" cy="50%" r="50%">
-            <stop offset="0" stop-color="#9B7BC6" stop-opacity=".35"/>
-            <stop offset="1" stop-color="#9B7BC6" stop-opacity="0"/>
-          </radialGradient>
-        </defs>
-        <ellipse cx="200" cy="250" rx="190" ry="230" fill="url(#g)"/>
-        <path class="star" fill="#9B7BC6" d="M200 40C209 190 216 236 380 250C216 264 209 310 200 460C191 310 184 264 20 250C184 236 191 190 200 40Z"/>
+        <path class="big" fill="#9B7BC6" d="M200 0C215 175 225 235 400 250C225 265 215 325 200 500C185 325 175 265 0 250C175 235 185 175 200 0Z"/>
+        <path class="star" fill="#9B7BC6" d="M200 140C206 215 210 240 270 250C210 260 206 285 200 360C194 285 190 260 130 250C190 240 194 215 200 140Z"/>
       </svg>
     </div>
     <div class="wrap">
       <p class="eyebrow">BRAND IDENTITY &amp; DESIGN</p>
       <h1>نصمم هوية تخلّي علامتك <em>تلمع</em></h1>
-      <p class="lead">شعار وهوية بصرية متكاملة لأصحاب العلامات التجارية والمطاعم والكافيهات والمتاجر في السعودية.</p>
+      <p class="lead">شعار، هوية بصرية، وموشن جرافيك لأصحاب العلامات التجارية والمطاعم والكافيهات والمتاجر.</p>
       <div class="ctas">
         <a class="btn btn-gold" href="https://wa.me/966507689004" target="_blank" rel="noopener">ابدأ مشروعك</a>
-        <a class="btn btn-line" href="#services">شوف الباقات</a>
+        <a class="btn btn-line btn-soft" href="#work">شاهد أعمالنا</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block band" id="services">
+    <div class="wrap">
+      <div class="head reveal">
+        <h2>خدماتنا</h2>
+        <p>كل ما تحتاجه علامتك عشان تظهر باحتراف</p>
+      </div>
+      <div class="svc">
+        <article class="reveal"><svg viewBox="0 0 80 100" aria-hidden="true"><path d="M40 0C43 35 45 47 80 50C45 53 43 65 40 100C37 65 35 53 0 50C35 47 37 35 40 0Z"/></svg><h3>الشعار</h3><p>شعار مميز بنسخ تناسب كل استخدام</p></article>
+        <article class="reveal"><svg viewBox="0 0 80 100" aria-hidden="true"><path d="M40 0C43 35 45 47 80 50C45 53 43 65 40 100C37 65 35 53 0 50C35 47 37 35 40 0Z"/></svg><h3>الهوية البصرية</h3><p>ألوان وخطوط ونظام متكامل</p></article>
+        <article class="reveal"><svg viewBox="0 0 80 100" aria-hidden="true"><path d="M40 0C43 35 45 47 80 50C45 53 43 65 40 100C37 65 35 53 0 50C35 47 37 35 40 0Z"/></svg><h3>الموشن جرافيك</h3><p>حركة تعطي علامتك حياة</p></article>
+        <article class="reveal"><svg viewBox="0 0 80 100" aria-hidden="true"><path d="M40 0C43 35 45 47 80 50C45 53 43 65 40 100C37 65 35 53 0 50C35 47 37 35 40 0Z"/></svg><h3>تصاميم السوشيال</h3><p>قوالب وبنرات متناسقة</p></article>
       </div>
     </div>
   </section>
@@ -242,7 +274,7 @@ footer .mark{letter-spacing:.4em;direction:ltr;color:var(--cream);font-size:12px
     </div>
   </section>
 
-  <section class="block" id="services">
+  <section class="block" id="packages">
     <div class="wrap">
       <div class="head reveal">
         <h2>باقاتنا</h2>
@@ -307,6 +339,20 @@ footer .mark{letter-spacing:.4em;direction:ltr;color:var(--cream);font-size:12px
     </div>
   </section>
 
+  <section class="block" id="work">
+    <div class="wrap">
+      <div class="head reveal">
+        <h2>أعمال مختارة</h2>
+        <p class="work-sub">مشاريع عملاء ومشاريع مفهومية — نوضّح نوع كل مشروع</p>
+      </div>
+      <div class="works">
+        <article class="work reveal"><div class="ph">ضع صورة المشروع هنا</div><h3>اسم المشروع</h3><p>القطاع • نوع المشروع</p></article>
+        <article class="work reveal"><div class="ph">ضع صورة المشروع هنا</div><h3>اسم المشروع</h3><p>القطاع • نوع المشروع</p></article>
+        <article class="work reveal"><div class="ph">ضع صورة المشروع هنا</div><h3>اسم المشروع</h3><p>القطاع • نوع المشروع</p></article>
+      </div>
+    </div>
+  </section>
+
   <section class="block" id="process">
     <div class="wrap">
       <div class="head reveal">
@@ -327,12 +373,7 @@ footer .mark{letter-spacing:.4em;direction:ltr;color:var(--cream);font-size:12px
   <div class="wrap" id="contact">
     <div class="cta reveal">
       <h2>جاهز تبدأ هويتك؟</h2>
-      <p>كلمنا على واتساب، نفهم مشروعك ونرشّح لك الباقة المناسبة.</p>
-      <div class="row">
-        <a class="btn btn-dark" href="https://wa.me/966507689004" target="_blank" rel="noopener">تواصل على واتساب</a>
-        <span class="num" id="wa">+966 50 768 9004</span>
-        <button class="copy" type="button" id="copyBtn">نسخ الرقم</button>
-      </div>
+      <a class="btn btn-tint" href="https://wa.me/966507689004" target="_blank" rel="noopener">تواصل معنا</a>
     </div>
   </div>
 </main>
@@ -340,7 +381,7 @@ footer .mark{letter-spacing:.4em;direction:ltr;color:var(--cream);font-size:12px
 <footer>
   <div class="wrap">
     <span class="mark">TAALAQ STUDIO</span>
-    <span>جميع الحقوق محفوظة © تألّق ستوديو</span>
+    <span>جميع الحقوق محفوظة — تألّق ستوديو</span>
   </div>
 </footer>
 
@@ -358,12 +399,6 @@ footer .mark{letter-spacing:.4em;direction:ltr;color:var(--cream);font-size:12px
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
   els.forEach(function(e){io.observe(e)});
 })();
-document.getElementById('copyBtn').addEventListener('click', function(){
-  var b=this, t='+966507689004';
-  function done(){b.textContent='تم النسخ';setTimeout(function(){b.textContent='نسخ الرقم'},1800)}
-  function fallback(){var r=document.createRange();r.selectNodeContents(document.getElementById('wa'));var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='الرقم محدد، انسخه'}
-  try{navigator.clipboard.writeText(t).then(done,fallback)}catch(e){fallback()}
-});
 </script>
 
 </body>
