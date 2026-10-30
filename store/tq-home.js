@@ -161,6 +161,17 @@
     );
 
     var products = main.querySelector('.section-products');
+    // Show packages from lowest to highest price
+    var grid = products && products.querySelector('[data-grid-root]');
+    if (grid) {
+      var cards = Array.prototype.slice.call(grid.querySelectorAll(':scope > [data-product-card]'));
+      var price = function (c) {
+        var m = (c.textContent || '').replace(/,/g, '').match(/(\d+(?:\.\d+)?)\s*(?:\.00)?/g);
+        var n = m ? m.map(parseFloat).filter(function (x) { return x >= 100; }) : [];
+        return n.length ? n[0] : 0;
+      };
+      cards.sort(function (a, b) { return price(a) - price(b); }).forEach(function (c) { grid.appendChild(c); });
+    }
     var firstSection = main.querySelector('section') || null;
     main.insertBefore(hero, firstSection);
     main.insertBefore(services, firstSection);
