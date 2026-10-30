@@ -1,0 +1,72 @@
+/* تألّق | TAALAQ STUDIO — Zid (Numu theme) brand CSS v1
+   الألوان: أبيض #FFFFFF · أسود #111111 · خزامى #9B7BC6 · خزامى فاتح #F4F0FA
+   الخط: Alexandria
+   ملاحظة: محددات عامة. لم تُختبر بعد على المتجر المباشر. */
+
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;700&display=swap');
+
+:root{
+  --tq-ink:#111111;
+  --tq-white:#FFFFFF;
+  --tq-lav:#9B7BC6;
+  --tq-tint:#F4F0FA;
+}
+
+/* الخط — بدون لمس الأيقونات */
+body, h1, h2, h3, h4, h5, h6, p, a, li, label, button, input, select, textarea{
+  font-family:'Alexandria', sans-serif !important;
+}
+
+/* الخلفية والنص */
+body{ background-color:var(--tq-white); color:var(--tq-ink); }
+h1, h2, h3, h4, h5, h6{ color:var(--tq-ink); }
+
+/* الروابط */
+a:hover, a:focus{ color:var(--tq-lav); }
+
+/* أزرار ثيم نمو */
+.btn.btn-filled{
+  background-color:var(--tq-lav) !important;
+  border-color:var(--tq-lav) !important;
+  color:var(--tq-ink) !important;
+  border-radius:999px !important;
+}
+.btn.btn-filled:hover{ background-color:var(--tq-ink) !important; border-color:var(--tq-ink) !important; color:var(--tq-white) !important; }
+.btn.btn-outlined{
+  border-color:var(--tq-lav) !important;
+  color:var(--tq-ink) !important;
+  border-radius:999px !important;
+}
+.btn.btn-outlined:hover{ background-color:var(--tq-lav) !important; color:var(--tq-ink) !important; }
+
+/* الأزرار الأساسية */
+.btn-primary, [type="submit"], .add-to-cart, .btn-add-to-cart{
+  background-color:var(--tq-lav) !important;
+  border-color:var(--tq-lav) !important;
+  color:var(--tq-ink) !important;
+  border-radius:999px !important;
+}
+.btn-primary:hover, [type="submit"]:hover, .add-to-cart:hover, .btn-add-to-cart:hover{
+  background-color:var(--tq-ink) !important;
+  border-color:var(--tq-ink) !important;
+  color:var(--tq-white) !important;
+}
+
+/* الأزرار الثانوية */
+.btn-outline-primary, .btn-secondary{
+  background-color:transparent !important;
+  border:1px solid var(--tq-lav) !important;
+  color:var(--tq-ink) !important;
+  border-radius:999px !important;
+}
+.btn-outline-primary:hover, .btn-secondary:hover{
+  background-color:var(--tq-lav) !important;
+  color:var(--tq-ink) !important;
+}
+
+/* حقول الإدخال */
+input:focus, select:focus, textarea:focus{
+  border-color:var(--tq-lav) !important;
+  box-shadow:0 0 0 3px rgba(155,123,198,.2) !important;
+  outline:none;
+}

@@ -95,10 +95,13 @@
     var main = document.getElementById('main');
     if (!main || document.getElementById('tq-hero')) return;
     var isHome = location.pathname === '/' || location.pathname === '';
-    // Hide the automatic "tax exempt" badge on product cards (all pages)
-    document.querySelectorAll('.badge').forEach(function (b) {
-      if (/معفى من الضريبة/.test(b.textContent)) b.style.display = 'none';
-    });
+    // Hide the automatic "tax exempt" badge on product cards (all pages, incl. late-loaded cards)
+    var hideTax = function () {
+      document.querySelectorAll('.badge').forEach(function (b) {
+        if (/معفى من الضريبة/.test(b.textContent)) b.style.display = 'none';
+      });
+    };
+    hideTax(); setTimeout(hideTax, 1500); setTimeout(hideTax, 4000);
     if (!isHome) return;
     document.body.classList.add('tq-home');
 
