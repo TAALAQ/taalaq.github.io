@@ -56,6 +56,8 @@
       '.tq-work .tq-ph{aspect-ratio:1/1;border:2px solid #9B7BC6;border-radius:16px;background:#F4F0FA;display:grid;place-items:center;color:#9B7BC6;font-size:15px}',
       '.tq-work h3{font-size:18px;font-weight:500;margin-top:14px}',
       '.tq-work p{color:#55505a;font-size:14px}',
+      '.tq-work img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:16px;border:1px solid #eee}',
+      '.tq-work .tq-tag{display:inline-block;margin-top:8px;padding:3px 12px;border-radius:999px;background:#F4F0FA;color:#9B7BC6;font-size:12px;font-weight:500}',
       '.tq-sub-lav{color:#9B7BC6!important}',
       '.tq-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));counter-reset:s}',
       '@media (max-width:900px){.tq-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}',
@@ -87,8 +89,10 @@
   function why(t, p) {
     return '<article class="tq-card tq-soft tq-reveal"><div class="tq-ico">' + STAR + '</div><h3>' + t + '</h3><p>' + p + '</p></article>';
   }
-  function work() {
-    return '<article class="tq-work tq-reveal"><div class="tq-ph">ضع صورة المشروع هنا</div><h3>اسم المشروع</h3><p>القطاع • نوع المشروع</p></article>';
+  var IMG = 'https://taalaq.github.io/works/';
+  function work(img, name, sub, tag) {
+    var media = img ? '<img src="' + IMG + img + '" alt="هوية ' + name + '" loading="lazy" width="800" height="800">' : '<div class="tq-ph">الصورة قريبًا</div>';
+    return '<article class="tq-work tq-reveal">' + media + '<h3>' + name + '</h3><p>' + sub + '</p><span class="tq-tag">' + tag + '</span></article>';
   }
 
   function build() {
@@ -135,6 +139,16 @@
       '</div></div></section>'
     );
 
+    var team = el(
+      '<section id="tq-team" class="tq tq-sec tq-band"><div class="tq-wrap"><div class="tq-head tq-reveal"><h2>فريق منصة تألّق</h2>' +
+      '<p>مشروعك يمر على أقسام متخصصة، كل قسم يتابع مرحلته.</p></div><div class="tq-grid4">' +
+      card('فريق المبيعات', 'يساعدك تختار الباقة المناسبة لمرحلة مشروعك.') +
+      card('خدمة العملاء', 'معك من أول تواصل، يجاوب استفساراتك ويتابع ملاحظاتك.') +
+      card('فريق التشغيل', 'ينظم مراحل مشروعك وجدوله، ويتابع الاعتمادات والتسليم.') +
+      card('فريق التصميم', 'يحوّل فهم مشروعك إلى شعار وهوية بصرية متكاملة.') +
+      '</div></div></section>'
+    );
+
     var pkHead = el(
       '<section id="tq-packages" class="tq tq-sec" style="padding-bottom:0"><div class="tq-wrap"><div class="tq-head tq-reveal" style="margin-bottom:0"><h2>باقاتنا</h2>' +
       '<p>اختر الباقة اللي تناسب مرحلة مشروعك. التطبيقات نختارها حسب نشاطك، مو قائمة واحدة للجميع.</p></div></div></section>'
@@ -143,7 +157,7 @@
     var works = el(
       '<section id="tq-work" class="tq tq-sec"><div class="tq-wrap"><div class="tq-head tq-reveal"><h2>أعمال مختارة</h2>' +
       '<p class="tq-sub-lav">مشاريع عملاء ومشاريع مفهومية — نوضّح نوع كل مشروع</p></div>' +
-      '<div class="tq-grid3">' + work() + work() + work() + '</div></div></section>'
+      '<div class="tq-grid3">' + work('asayel.jpg', 'أصايل لاين', 'متجر عبايات • هوية بصرية شاملة', 'مشروع عميل') + work('', 'شاهي غنى', 'مقهى شاهي • هوية بصرية', 'مشروع عميل') + work('areeka.jpg', 'مستر عريكة', 'حلويات شعبية • هوية بصرية', 'مشروع مفهومي') + '</div></div></section>'
     );
 
     var steps = el(
@@ -179,6 +193,7 @@
     main.insertBefore(hero, firstSection);
     main.insertBefore(services, firstSection);
     main.insertBefore(whyS, firstSection);
+    main.insertBefore(team, firstSection);
     if (products) {
       main.insertBefore(pkHead, products);
       products.parentNode.insertBefore(works, products.nextSibling);
