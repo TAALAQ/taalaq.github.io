@@ -105,7 +105,7 @@
     var done = function () { location.href = "/cart"; };
     Promise.resolve(z.get ? z.get().catch(function () { return null; }) : null).then(function (c) {
       var items = (c && (c.products || c.items || (c.cart && c.cart.products))) || [];
-      var has = items.some(function (p) { return p && (p.product_id === id || p.id === id); });
+      var nid = String(id).replace(/-/g, ""); var has = items.some(function (p) { return p && String(p.product_id || "").replace(/-/g, "") === nid; });
       return has ? null : z.addProduct({ product_id: id, quantity: 1 });
     }).then(done).catch(function () { btn.innerHTML = old; btn.style.pointerEvents = ""; location.href = url; });
   }
@@ -349,6 +349,7 @@ section{padding:110px 0}
   .brands{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:36px -22px 0;padding:0 22px 14px;scrollbar-width:none}
   .brands::-webkit-scrollbar{display:none}
   .brand-card{flex:0 0 84%;scroll-snap-align:center}
+  .bc-more{font-size:13.5px;padding:12px 16px;white-space:nowrap}
   .packs{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:40px -22px 0;padding:16px 22px 14px;scrollbar-width:none}
   .packs::-webkit-scrollbar{display:none}
   .pack{flex:0 0 86%;scroll-snap-align:center}
