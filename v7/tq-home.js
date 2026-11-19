@@ -15,6 +15,14 @@
       h.appendChild(img);
     });
   }
+  /* أيقونة التبويب: شرارة تألّق بلون الخزامى (كل الصفحات) */
+  (function () {
+    var B = "https://taalaq.github.io/v7/";
+    document.querySelectorAll('link[rel~="icon"],link[rel="apple-touch-icon"]').forEach(function (l) { l.remove(); });
+    [["icon", "image/svg+xml", "icon.svg", ""], ["icon", "image/png", "icon-32.png", "32x32"], ["icon", "image/png", "icon-192.png", "192x192"], ["apple-touch-icon", "", "icon-180.png", "180x180"]].forEach(function (x) {
+      var l = document.createElement("link"); l.rel = x[0]; if (x[1]) l.type = x[1]; l.href = B + x[2]; if (x[3]) l.sizes = x[3]; document.head.appendChild(l);
+    });
+  })();
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", fixHeader); else fixHeader();
 
   var path = location.pathname.replace(/\/+$/, "");
