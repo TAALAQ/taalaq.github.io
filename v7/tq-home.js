@@ -71,9 +71,9 @@
   var CLIENT_LOGOS = [["logos/medad.png", "مِداد"], ["logos/lahhab.png", "لهّاب"], ["logos/ghina.png", "شاهي غنى"], ["logos/asayel.png", "أصايل لاين"]];
 
   var SERVICES = [
-    { title: "الهوية البصرية", keys: "شعار · ألوان · خطوط · دليل هوية", desc: "نبني لعلامتك شخصية واضحة تنعرف من بعيد، من فكرة الشعار لين آخر تطبيق.", img: "works/medad.jpg" },
-    { title: "التطبيقات والتغليف", keys: "أكواب · أكياس · علب · منيو · زي موحد", desc: "نطبق الهوية على كل شي يلمسه عميلك، بملفات جاهزة للطباعة.", img: "works/ghina.jpg" },
-    { title: "السوشال ميديا", keys: "قوالب Canva · منشورات · ستوري", desc: "قوالب مرتبة بهويتك تعدّلها بنفسك، عشان حسابك يطلع بنفس المستوى كل يوم.", img: "works/lahhab.jpg" },
+    { title: "الهوية البصرية", keys: "شعار · ألوان · خطوط · دليل هوية", desc: "نبني لعلامتك شخصية واضحة تنعرف من بعيد، من فكرة الشعار لين آخر تطبيق.", img: "@v3/works/medad/logo.jpg" },
+    { title: "التطبيقات والتغليف", keys: "أكواب · أكياس · علب · منيو · زي موحد", desc: "نطبق الهوية على كل شي يلمسه عميلك، بملفات جاهزة للطباعة.", img: "@v3/works/medad/menu.jpg" },
+    { title: "السوشال ميديا", keys: "قوالب Canva · منشورات · ستوري", desc: "قوالب مرتبة بهويتك تعدّلها بنفسك، عشان حسابك يطلع بنفس المستوى كل يوم.", img: "@v3/works/medad/social.jpg" },
     { title: "الموشن جرافيك", keys: "إعلانات متحركة · ريلز · تيك توك", desc: "ترسل لنا صورة منتجك، ونحولها لإعلان متحرك يوقف التمرير.", img: "" },
   ];
   var PILLARS = [["فكرة قبل الشكل", "كل هوية تبدأ بفكرة تخص مشروعك، مو قالب جاهز."], ["تفاصيل مدروسة", "نراجع كل ملف قبل التسليم: الألوان والمقاسات والخطوط."], ["وضوح من البداية", "سعر واضح، خطوات واضحة، ومعاينة قبل التسليم."]];
@@ -91,7 +91,7 @@
   var sparkSvg = function (cls) { return SPARK.replace('class="spark"', 'class="' + cls + '"'); };
   var fmt = function (n) { return n.toLocaleString("en-US"); };
   var two = function (i) { return String(i + 1).padStart(2, "0"); };
-  var img = function (p) { return SITE.base + p; };
+  var img = function (p) { return p.charAt(0) === "@" ? "https://taalaq.github.io/" + p.slice(1) : SITE.base + p; };
   var waLink = function (t) { return "https://wa.me/" + SITE.whatsapp + "?text=" + encodeURIComponent(t); };
   var ttLink = "https://www.tiktok.com/@" + SITE.tiktok;
   var TT_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true" class="ico"><path d="M16.6 5.8A4.3 4.3 0 0 1 15.5 3h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.7 5.7 0 1 0 4.9 5.7V9.1a7.4 7.4 0 0 0 4.3 1.4V7.4a4.3 4.3 0 0 1-3.2-1.6z"/></svg>';
